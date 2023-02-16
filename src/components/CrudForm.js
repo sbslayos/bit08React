@@ -1,10 +1,12 @@
  import React, { useState, useEffect } from 'react';
+ import { v4 as uuidv4 } from 'uuid';
 
 
 export const CrudForm = ({game, setGame, setGames, games}) => {
+  
 
   const handleInputName = (e) => {
-    setGame({...game, name: e.target.value })
+    setGame({...game, id: uuidv4(), name: e.target.value})
      
   }
 
@@ -24,8 +26,7 @@ export const CrudForm = ({game, setGame, setGames, games}) => {
     <div>
       <form>
       <input type= 'text' placeholder='Ingrese el nombre del Juego...' onInput={handleInputName} />
-      <input type= 'text' placeholder='Ingrese la temática...' onInput
-      ={handleInputCategory} />
+      <input type= 'text' placeholder='Ingrese la temática...' onInput={handleInputCategory} />
       <button onClick={handleBut}>Agregar</button>
       </form>
     </div>
