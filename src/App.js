@@ -17,7 +17,7 @@ function App() {
     <>
     
     <CrudForm game={game} setGame={setGame} setGames={setGames} games={games}/>
-    <Games games={games} />
+    <Games games={games} setGames={setGames} />
     </>
   );
 }

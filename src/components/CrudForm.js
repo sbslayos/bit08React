@@ -18,6 +18,7 @@ export const CrudForm = ({game, setGame, setGames, games}) => {
   const handleBut = (e) => {
      e.preventDefault()
     setGames([...games, game])
+    setGame({id: null ,name:'', category:''})
 
   }
 
@@ -25,8 +26,8 @@ export const CrudForm = ({game, setGame, setGames, games}) => {
   return (
     <div>
       <form>
-      <input type= 'text' placeholder='Ingrese el nombre del Juego...' onInput={handleInputName} />
-      <input type= 'text' placeholder='Ingrese la temática...' onInput={handleInputCategory} />
+      <input type= 'text' placeholder='Ingrese el nombre del Juego...' onInput={handleInputName} value={game.name}/>
+      <input type= 'text' placeholder='Ingrese la temática...' onInput={handleInputCategory} value={game.category} />
       <button onClick={handleBut}>Agregar</button>
       </form>
     </div>

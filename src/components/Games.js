@@ -1,20 +1,28 @@
  import React from 'react'
 
 export const Games = ({games}) => {
-    const parts = games.map(game => 
-    <table>
-        <tr>
-            <th>Juego</th>
-            <th>Temática</th>
-        </tr>
-        {game.name} {game.category}
+    const parts = games.map(game =>
+      <li key={game.id}>{game.name}    {game.category}
+      <button>Editar</button><button>Eliminar</button>
+      </li>)
 
-        </table> )
- 
-    //  console.log(parts);
-  return (
+      const updateGame = () =>{
+
+
+
+      }
+      const deleteGame = () => {
+        
+
+      }
+
     
-    <div>{parts}</div>
+
+  return (
+    <div>
+      <h2>Lista de videoJuegos</h2>
+      <ol>{parts}</ol>
+    </div>
+
   )
 }
-
