@@ -14,6 +14,10 @@ export const CrudForm = ({game, setGame, setGames, games}) => {
     setGame({...game, category: e.target.value })
   }
 
+  // const handleSelect = (e) => {
+
+  // }
+
  
   const handleBut = (e) => {
      e.preventDefault()
@@ -22,12 +26,18 @@ export const CrudForm = ({game, setGame, setGames, games}) => {
 
   }
 
+
   
   return (
     <div>
       <form>
       <input type= 'text' placeholder='Ingrese el nombre del Juego...' onInput={handleInputName} value={game.name}/>
       <input type= 'text' placeholder='Ingrese la temática...' onInput={handleInputCategory} value={game.category} />
+      {/* <select name='selectMachine' onInput={handleSelect} >
+        <option value='ps4'>PlayStation</option>
+        <option value='ps4' >Xbox</option>
+        <option value='ps4' >Nintendo</option>
+      </select> */}
       <button onClick={handleBut}>Agregar</button>
       </form>
     </div>

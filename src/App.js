@@ -6,7 +6,7 @@ import { Games } from "./components/Games";
 
 
 function App() {
-  const [game, setGame] = useState ({id: null ,name:'', category:''})
+  const [game, setGame] = useState ({id: null ,name:'', category:'' })
   const [games, setGames] = useState ([])
   useEffect(() => {
      console.log(games);
@@ -17,7 +17,7 @@ function App() {
     <>
     
     <CrudForm game={game} setGame={setGame} setGames={setGames} games={games}/>
-    <Games games={games} setGames={setGames} />
+    <Games games={games} setGames={setGames} game={game} setGame={setGame} />
     </>
   );
 }
