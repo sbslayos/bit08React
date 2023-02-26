@@ -1,21 +1,33 @@
- import React from 'react'
+ import { useEffect, useState } from 'react';
 
-export const Games = ({games, setGames, game, setGame}) => {
+export const Games = ({games, setGames, game, setGame, setUpdate}) => {
+  
+ 
+  // const [upgames, setupgames] = useState("")
+  // useEffect(() => {
+   
+  // }, [upgames])
   
   
-  const updateGame = (id) =>{ 
 
-    console.log('id', id);
-  }
-   const deleteGame = () => {
-    console.log('eliminar');
-    
+  // const setDate = (id, name, category) => {
+  //   if (games.filter(i => i.id === id )){
+  //   setupgames[id, name, category]
+  // }
 
+  // }
+
+
+
+
+   const deleteGame = (id) => {
+    const eliminate = games.filter( i => i.id !== id )
+    setGames(eliminate)
    }
     
   const parts = games.map(game =>
       <li key={game.id}>{game.name}    {game.category}
-      <button onClick={ () => updateGame(game.id)} >Editar</button> <button onClick={deleteGame} >Eliminar</button>
+      <button onClick={ () =>setUpdate(game.id)} >Editar</button> <button onClick={ () => deleteGame(game.id)} >Eliminar</button>
       </li>)
 
       let out = null;
@@ -33,5 +45,6 @@ export const Games = ({games, setGames, game, setGame}) => {
       {out}
     </div>
     </>
+    
   )
 }
