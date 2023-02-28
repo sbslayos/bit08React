@@ -1,15 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Games } from "./Games";
+import { BsCardChecklist } from "react-icons/bs";
 
-export const CrudForm = ({
-  game,
-  setGame,
-  setGames,
-  games,
-  update,
-  setUpdate,
-}) => {
+export const CrudForm = ({ game, setGame, setGames, games, update, setUpdate, setmsg}) => {
 
   const [edit, setedit] = useState(null);
 
@@ -26,38 +19,43 @@ export const CrudForm = ({
     setGame({ ...game, category: e.target.value });
   };
 
-
-
   const handleBut = (e) => {
+
     e.preventDefault();
+    if (!game.name || !game.category) {
+      alert("Datos incompletos.");
+      return;
+    }
     setGames([...games, game]);
     setGame({ id: null, name: "", category: "" });
+   
    
   };
   if (games.length > 0) {
     localStorage.setItem('games',JSON.stringify(games));
   }
 
-  
 
   const handleUpdateName = (e) => {
-    setedit({ ...edit, name: e.target.value});
-
+    setedit({ ...edit, name: e.target.value.trim() });
   }
   const handleUpdateCategory = (e) => {
-    setedit({ ...edit, category: e.target.value});
-
+    setedit({ ...edit, category: e.target.value.trim() });
   }
-  const handleUpdate = (e) =>{
-    e.preventDefault();
-    console.log(edit);
+
+  const handleUpdate = (e) => {
+    e.preventDefault()
+    if (!edit.name.trim() || !edit.category.trim()) {
+      alert("Datos Incompletos") 
+      return;
+    }
     const arr = [...games]
-    const i = arr.findIndex((item) => item.id === edit.id)
+    const i = arr.findIndex( (i) => i.id === edit.id )
     arr[i].name = edit.name;
     arr[i].category = edit.category;
-    setGames(arr);
-    setUpdate(null);
-    setedit(null);
+    setGames(arr)
+    setUpdate(null)
+    setedit(null)
   }
 
   return (
@@ -92,82 +90,9 @@ export const CrudForm = ({
             onInput={handleInputCategory}
             value={game.category}
           />
-          <button onClick={handleBut}>Agregar</button>
+          <button  onClick={handleBut}>Agregar Videojuego<BsCardChecklist className="icon" /> </button>
         </form>
       )}
     </>
   );
-};
-
-// {update && edit === true ? (
-
-//   <form className='form'>
-//   <input type= 'text'  onInput={handleUpdateName} value={edit.name}/>
-//   <input type= 'text'  onInput={handleUpdateCategory} value={edit.category} />
-//   <button onClick={handleInputUpdate}>Renombrar Tarea</button>
-//   </form>
-
-// const initialForm = {
-//   name:"",
-//   category:"",
-//   id: null,
-// };
-
-// const CrudForm = (createData, updateData, dataEdit, setdataEdit) => {
-//   const [form, setForm] = useState(initialForm);
-
-//   const handleChange = (e) => {
-//     setForm({
-//       ...form,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     if(!form.name || !form.category ){
-//       alert("Datos Incompletos");
-//       return;
-//     }
-
-//     if(form.id === null){
-//       createData(form);
-//     }else{
-//       updateData(form);
-//     }
-
-//     handleReset();
-
-//   };
-
-//   const handleReset = () => {
-//     setForm(initialForm);
-//     setdataEdit(null);
-//   }
-
-//   return (
-//     <div>
-//       <h3>Agregar</h3>
-//       <form onSubmit={handleSubmit}>
-//         <input
-//         type='text'
-//         name='name'
-//         placeholder='Nombre'
-//         onChange={handleChange}
-//         value={form.name}
-//         />
-//         <input
-//         type='text'
-//         name='category'
-//         placeholder='Temática'
-//         onChange={handleChange}
-//         value={form.category}
-//         />
-//         <input type="submit" value="Enviar"  />
-//         <input type="reset" value="Limpiar" onClick={handleReset}/>
-//       </form>
-//     </div>
-//   )
-// };
-// export default CrudForm;
+}
