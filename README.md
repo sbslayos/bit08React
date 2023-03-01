@@ -1,6 +1,7 @@
 <!-- 
 Autor:
 Germán Sebastián Martínez Layos
+
 Descripción:
 Aplicativo WEB, sencillo con las operaciones del CRUD, Create, Read, Update, Delete. Con un enfoque a una lista de video Juegos que es manipulada a su vez, por el usuario. Validaciones esenciales.
 

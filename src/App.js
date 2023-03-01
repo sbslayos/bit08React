@@ -6,8 +6,8 @@ import { GrGamepad } from "react-icons/gr";
 import { BiGame } from "react-icons/bi";
 
 function App() {
-  const [game, setGame] = useState ({id: null ,name:'', category:'' })
-  const [games, setGames] = useState ([])
+  const [game, setGame] = useState ({id: null ,name:'', category:'' });
+  const [games, setGames] = useState ([]);
   const [update, setUpdate] = useState(null);
   
  useEffect(() => {

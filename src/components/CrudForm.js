@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import { BsCardChecklist } from "react-icons/bs";
 export const CrudForm = ({ game, setGame, games, setGames, update, setUpdate}) => {
   const [edit, setedit] = useState(null);
-
+  
   useEffect(() => {
     const arr = games.filter((item) => item.id === update);
-    setedit(arr[0]);
-  }, [update]);
-
+    setedit(arr[0])
+  }, [games, update]);
+  
   const handleInputName = (e) => {
     setGame({ ...game, id: uuidv4(), name: e.target.value });
   };
