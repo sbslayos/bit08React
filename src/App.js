@@ -20,7 +20,7 @@ function App() {
     <>
     <h1 className="tittle" > <BiGame/> MIS VIDEOJUEGOS <GrGamepad/> </h1>
 
-    <CrudForm game={game} setGame={setGame} setGames={setGames} games={games} setUpdate={setUpdate} update={update} setmsg={setmsg}/>
+    <CrudForm game={game} setGame={setGame} setGames={setGames} games={games} setUpdate={setUpdate} update={update}/>
     <Games games={games} setGames={setGames} game={game} setGame={setGame} setUpdate={setUpdate} update={update} />
     </>
   );

@@ -3,7 +3,7 @@ import { BsFillDice5Fill } from "react-icons/bs";
 import { TbWriting } from "react-icons/tb"
 import { RiDeleteBinFill } from "react-icons/ri"
 
-export const Games = ({ games, setGames, game, setGame, setUpdate }) => {
+export const Games = ({ games, setGames, setUpdate }) => {
   const deleteGame = (id) => {
     const eliminate = games.filter((i) => i.id !== id);
     setGames(eliminate);
