@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { BsCardChecklist } from "react-icons/bs";
-
-export const CrudForm = ({ game, setGame, setGames, games, update, setUpdate}) => {
-
+export const CrudForm = ({ game, setGame, games, setGames, update, setUpdate}) => {
   const [edit, setedit] = useState(null);
 
   useEffect(() => {
