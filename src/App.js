@@ -1,6 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { CrudForm } from "./components/CrudForm";
+import {React, useState, useEffect } from "react";
+import { CrudForm } from "./components/crudForm.js";
 import { Games } from "./components/Games";
 import { GrGamepad } from "react-icons/gr";
 import { BiGame } from "react-icons/bi";
@@ -18,7 +17,7 @@ function App() {
  
   return (
     <>
-    <h1 className="tittle" > <BiGame/> MIS VIDEOJUEGOS <GrGamepad/> </h1>
+    <h1 className="tittle" > <BiGame/> TO-DO LIST DE TUS VIDEO JUEGOS FAVORITOS <GrGamepad/> </h1>
 
     <CrudForm game={game} setGame={setGame} setGames={setGames} games={games} setUpdate={setUpdate} update={update}/>
     <Games games={games} setGames={setGames} game={game} setGame={setGame} setUpdate={setUpdate} update={update} />
